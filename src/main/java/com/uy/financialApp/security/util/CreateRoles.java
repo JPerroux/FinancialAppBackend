@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.uy.financialApp.security.entity.User;
 //import com.uy.financialApp.security.entity.Rol;
 //import com.uy.financialApp.security.enums.RolName;
 import com.uy.financialApp.security.service.RolService;
+import com.uy.financialApp.security.service.UserService;
 
 @Component
 public class CreateRoles implements CommandLineRunner {
@@ -14,12 +16,15 @@ public class CreateRoles implements CommandLineRunner {
 	@Autowired
 	RolService rolService;
 	
+	@Autowired
+	UserService userService;
+	
 	@Override
 	public void run(String... args) throws Exception {
-//		Rol rolAdmin = new Rol(RolName.ROLE_ADMIN);
+		User admin = new User("admin", "Admin", "a@a.a", "password");
 //		Rol rolUser = new Rol(RolName.ROLE_USER);
 //		
-//		rolService.save(rolAdmin);
+		userService.save(admin);
 //		rolService.save(rolUser);
 	}
 }

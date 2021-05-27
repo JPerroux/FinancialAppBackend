@@ -21,10 +21,10 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		User admin = new User("a@a.a", "admin", "password", "Admin");
+		//User admin = new User("a@a.a", "admin", "password", "Admin");
 //		Rol rolUser = new Rol(RolName.ROLE_USER); hello
 //		
-		userService.save(admin);
+		//userService.save(admin);
 //		rolService.save(rolUser);
 	}
 }

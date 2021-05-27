@@ -41,7 +41,6 @@ public class User {
 	}
 	
 	public User(@NotNull String name, @NotNull String userName, @NotNull String email, @NotNull String password) {
-		super();
 		this.name = name;
 		this.userName = userName;
 		this.email = email;

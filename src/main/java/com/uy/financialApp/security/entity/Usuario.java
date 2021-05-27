@@ -16,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class User {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,10 +37,10 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name = "rol_id"))
 	private Set<Rol> roles = new HashSet<>();
 	
-	public User() {
+	public Usuario() {
 	}
 	
-	public User(@NotNull String name, @NotNull String userName, @NotNull String email, @NotNull String password) {
+	public Usuario(@NotNull String name, @NotNull String userName, @NotNull String email, @NotNull String password) {
 		this.name = name;
 		this.userName = userName;
 		this.email = email;

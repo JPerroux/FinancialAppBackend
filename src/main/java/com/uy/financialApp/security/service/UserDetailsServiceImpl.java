@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.uy.financialApp.security.entity.MainUser;
-import com.uy.financialApp.security.entity.User;
+import com.uy.financialApp.security.entity.Usuario;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -17,7 +17,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userService.getByUserName(username).get();
+		Usuario user = userService.getByUserName(username).get();
 		return MainUser.build(user);
 	}
 }

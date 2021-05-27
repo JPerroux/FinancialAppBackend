@@ -27,7 +27,7 @@ public class MainUser implements UserDetails {
 		this.authorities = authorities;
 	}
 	
-	public static MainUser build(User user) {
+	public static MainUser build(Usuario user) {
 		List<GrantedAuthority> authorities = 
 				user.getRoles().stream().map(rol ->
 				new SimpleGrantedAuthority(rol.getRolName().name()))

@@ -25,7 +25,7 @@ import com.uy.financialApp.security.dto.JwtDTO;
 import com.uy.financialApp.security.dto.NewUserDTO;
 import com.uy.financialApp.security.dto.UserLoginDTO;
 import com.uy.financialApp.security.entity.Rol;
-import com.uy.financialApp.security.entity.User;
+import com.uy.financialApp.security.entity.Usuario;
 import com.uy.financialApp.security.enums.RolName;
 import com.uy.financialApp.security.jwt.JwtProvider;
 import com.uy.financialApp.security.service.RolService;
@@ -61,7 +61,7 @@ public class AuthController {
 			return new ResponseEntity(new MessageDTO("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
 		if(userService.existsByEmail(newUser.getEmail()))
 			return new ResponseEntity(new MessageDTO("Ese email ya existe"), HttpStatus.BAD_REQUEST);
-		User user = new User(newUser.getName(), newUser.getUserName(), newUser.getEmail(),
+		Usuario user = new Usuario(newUser.getName(), newUser.getUserName(), newUser.getEmail(),
 				passwordEncoder.encode(newUser.getPassword()));
 		Set<Rol> roles = new HashSet<>();
 		roles.add(rolService.getByRolName(RolName.ROLE_USER).get());

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.uy.financialApp.financialTools.acciones.entity.Action;
 import com.uy.financialApp.financialTools.acciones.service.ActionService;
 import com.uy.financialApp.security.entity.Rol;
-import com.uy.financialApp.security.entity.User;
+import com.uy.financialApp.security.entity.Usuario;
 import com.uy.financialApp.security.enums.RolName;
 import com.uy.financialApp.security.service.RolService;
 import com.uy.financialApp.security.service.UserService;
@@ -34,7 +34,7 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		User admin = new User();
+		Usuario admin = new Usuario();
 		
 		admin.setName("admin");
 		admin.setUserName("admin");

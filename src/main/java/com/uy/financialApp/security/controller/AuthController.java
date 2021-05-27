@@ -65,10 +65,10 @@ public class AuthController {
 				passwordEncoder.encode(newUser.getPassword()));
 		Set<Rol> roles = new HashSet<>();
 		roles.add(rolService.getByRolName(RolName.ROLE_USER).get());
+		System.out.println(newUser.getRoles());
 		if(newUser.getRoles().contains("admin"))
 			roles.add(rolService.getByRolName(RolName.ROLE_ADMIN).get());
 		user.setRoles(roles);
-		System.out.println(user);
 		userService.save(user);
 		return new ResponseEntity(new MessageDTO("Usuario guardado"), HttpStatus.CREATED);
 	}
@@ -87,6 +87,7 @@ public class AuthController {
 				JwtDTO jwtDTO = new JwtDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
 				return new ResponseEntity(jwtDTO, HttpStatus.OK);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new ResponseEntity(new MessageDTO("Usuario o contraseña incorrectos"), HttpStatus.UNAUTHORIZED);
 		}
 		

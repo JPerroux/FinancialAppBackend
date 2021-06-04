@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Clase Java para wsbcucotizacionesin complex type.
+ * <p>Java class for wsbcucotizacionesin complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="wsbcucotizacionesin"&gt;
@@ -52,7 +52,7 @@ public class Wsbcucotizacionesin {
     protected byte grupo;
 
     /**
-     * Obtiene el valor de la propiedad moneda.
+     * Gets the value of the moneda property.
      * 
      * @return
      *     possible object is
@@ -64,7 +64,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Define el valor de la propiedad moneda.
+     * Sets the value of the moneda property.
      * 
      * @param value
      *     allowed object is
@@ -76,7 +76,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaDesde.
+     * Gets the value of the fechaDesde property.
      * 
      * @return
      *     possible object is
@@ -88,7 +88,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Define el valor de la propiedad fechaDesde.
+     * Sets the value of the fechaDesde property.
      * 
      * @param value
      *     allowed object is
@@ -100,7 +100,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaHasta.
+     * Gets the value of the fechaHasta property.
      * 
      * @return
      *     possible object is
@@ -112,7 +112,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Define el valor de la propiedad fechaHasta.
+     * Sets the value of the fechaHasta property.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +124,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Obtiene el valor de la propiedad grupo.
+     * Gets the value of the grupo property.
      * 
      */
     public byte getGrupo() {
@@ -132,7 +132,7 @@ public class Wsbcucotizacionesin {
     }
 
     /**
-     * Define el valor de la propiedad grupo.
+     * Sets the value of the grupo property.
      * 
      */
     public void setGrupo(byte value) {

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para respuestastatus complex type.
+ * <p>Java class for respuestastatus complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="respuestastatus"&gt;
@@ -42,7 +42,7 @@ public class Respuestastatus {
     protected String mensaje;
 
     /**
-     * Obtiene el valor de la propiedad status.
+     * Gets the value of the status property.
      * 
      */
     public byte getStatus() {
@@ -50,7 +50,7 @@ public class Respuestastatus {
     }
 
     /**
-     * Define el valor de la propiedad status.
+     * Sets the value of the status property.
      * 
      */
     public void setStatus(byte value) {
@@ -58,7 +58,7 @@ public class Respuestastatus {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoerror.
+     * Gets the value of the codigoerror property.
      * 
      */
     public short getCodigoerror() {
@@ -66,7 +66,7 @@ public class Respuestastatus {
     }
 
     /**
-     * Define el valor de la propiedad codigoerror.
+     * Sets the value of the codigoerror property.
      * 
      */
     public void setCodigoerror(short value) {
@@ -74,7 +74,7 @@ public class Respuestastatus {
     }
 
     /**
-     * Obtiene el valor de la propiedad mensaje.
+     * Gets the value of the mensaje property.
      * 
      * @return
      *     possible object is
@@ -86,7 +86,7 @@ public class Respuestastatus {
     }
 
     /**
-     * Define el valor de la propiedad mensaje.
+     * Sets the value of the mensaje property.
      * 
      * @param value
      *     allowed object is

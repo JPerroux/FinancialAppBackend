@@ -90,17 +90,16 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.13.1</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>io.jsonwebtoken</groupId> -->
-		<!-- <artifactId>jjwt</artifactId> -->
-		<!-- <version>0.9.1</version> -->
-		<!-- </dependency> -->
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
-
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -118,7 +117,6 @@
 					<sourceDestDir>src/main/java/com/uy/financialApp/financialTools/acciones/external</sourceDestDir>
 					<wsdlUrls>
 						<wsdlUrl>https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones?wsdl</wsdlUrl>
-						<wsdlUrl>https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcumonedas?wsdl</wsdlUrl>
 						<wsdlUrl>https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsultimocierre?wsdl</wsdlUrl>
 					</wsdlUrls>
 				</configuration>

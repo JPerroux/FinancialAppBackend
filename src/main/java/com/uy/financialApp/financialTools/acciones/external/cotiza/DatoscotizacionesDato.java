@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Clase Java para datoscotizaciones.dato complex type.
+ * <p>Java class for datoscotizaciones.dato complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="datoscotizaciones.dato"&gt;
@@ -71,7 +71,7 @@ public class DatoscotizacionesDato {
     protected byte formaArbitrar;
 
     /**
-     * Obtiene el valor de la propiedad fecha.
+     * Gets the value of the fecha property.
      * 
      * @return
      *     possible object is
@@ -83,7 +83,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Sets the value of the fecha property.
      * 
      * @param value
      *     allowed object is
@@ -95,7 +95,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad moneda.
+     * Gets the value of the moneda property.
      * 
      */
     public short getMoneda() {
@@ -103,7 +103,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad moneda.
+     * Sets the value of the moneda property.
      * 
      */
     public void setMoneda(short value) {
@@ -111,7 +111,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad nombre.
+     * Gets the value of the nombre property.
      * 
      * @return
      *     possible object is
@@ -123,7 +123,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Sets the value of the nombre property.
      * 
      * @param value
      *     allowed object is
@@ -135,7 +135,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoISO.
+     * Gets the value of the codigoISO property.
      * 
      * @return
      *     possible object is
@@ -147,7 +147,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad codigoISO.
+     * Sets the value of the codigoISO property.
      * 
      * @param value
      *     allowed object is
@@ -159,7 +159,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad emisor.
+     * Gets the value of the emisor property.
      * 
      * @return
      *     possible object is
@@ -171,7 +171,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad emisor.
+     * Sets the value of the emisor property.
      * 
      * @param value
      *     allowed object is
@@ -183,7 +183,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad tcc.
+     * Gets the value of the tcc property.
      * 
      */
     public double getTCC() {
@@ -191,7 +191,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad tcc.
+     * Sets the value of the tcc property.
      * 
      */
     public void setTCC(double value) {
@@ -199,7 +199,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad tcv.
+     * Gets the value of the tcv property.
      * 
      */
     public double getTCV() {
@@ -207,7 +207,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad tcv.
+     * Sets the value of the tcv property.
      * 
      */
     public void setTCV(double value) {
@@ -215,7 +215,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad arbAct.
+     * Gets the value of the arbAct property.
      * 
      */
     public double getArbAct() {
@@ -223,7 +223,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad arbAct.
+     * Sets the value of the arbAct property.
      * 
      */
     public void setArbAct(double value) {
@@ -231,7 +231,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Obtiene el valor de la propiedad formaArbitrar.
+     * Gets the value of the formaArbitrar property.
      * 
      */
     public byte getFormaArbitrar() {
@@ -239,7 +239,7 @@ public class DatoscotizacionesDato {
     }
 
     /**
-     * Define el valor de la propiedad formaArbitrar.
+     * Sets the value of the formaArbitrar property.
      * 
      */
     public void setFormaArbitrar(byte value) {

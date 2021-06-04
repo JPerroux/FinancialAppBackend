@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para wsbcucotizacionesout complex type.
+ * <p>Java class for wsbcucotizacionesout complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="wsbcucotizacionesout"&gt;
@@ -40,7 +40,7 @@ public class Wsbcucotizacionesout {
     protected Datoscotizaciones datoscotizaciones;
 
     /**
-     * Obtiene el valor de la propiedad respuestastatus.
+     * Gets the value of the respuestastatus property.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class Wsbcucotizacionesout {
     }
 
     /**
-     * Define el valor de la propiedad respuestastatus.
+     * Sets the value of the respuestastatus property.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class Wsbcucotizacionesout {
     }
 
     /**
-     * Obtiene el valor de la propiedad datoscotizaciones.
+     * Gets the value of the datoscotizaciones property.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class Wsbcucotizacionesout {
     }
 
     /**
-     * Define el valor de la propiedad datoscotizaciones.
+     * Sets the value of the datoscotizaciones property.
      * 
      * @param value
      *     allowed object is

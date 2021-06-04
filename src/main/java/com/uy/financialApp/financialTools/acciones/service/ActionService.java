@@ -48,6 +48,5 @@ public class ActionService {
 	
 	public boolean existsByName(String name) {
 		return actionRepository.existsByName(name);
-	}
-	
+	}	
 }

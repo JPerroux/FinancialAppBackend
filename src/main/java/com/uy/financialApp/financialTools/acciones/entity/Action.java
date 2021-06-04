@@ -39,6 +39,7 @@ public class Action {
 	private Status status;
 	private String actualValue;
 	private Moneda moneda;
+	private double dividendos;
 	
 	public Action() {
 	}
@@ -124,5 +125,13 @@ public class Action {
 
 	public void setMoneda(Moneda moneda) {
 		this.moneda = moneda;
+	}
+
+	public double getDividendos() {
+		return dividendos;
+	}
+
+	public void setDividendos(double dividendos) {
+		this.dividendos = dividendos;
 	}
 }

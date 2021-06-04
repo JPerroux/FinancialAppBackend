@@ -83,6 +83,4 @@ public class WebScrapService {
 		}
 		return actionDTO;
 	}
-
-//	hCClyc
 }

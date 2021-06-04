@@ -90,6 +90,5 @@ public class AuthController {
 			e.printStackTrace();
 			return new ResponseEntity(new MessageDTO("Usuario o contraseña incorrectos"), HttpStatus.UNAUTHORIZED);
 		}
-		
 	}
 }

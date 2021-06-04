@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,23 +51,15 @@ public class ActionController {
 		return new ResponseEntity<List<ActionDTO>>(list, HttpStatus.OK);
 	}
 	
-	@GetMapping("/detail/{id}")
+	@GetMapping("/action/{id}")
 	public ResponseEntity<?> getById(@PathVariable("id") int id){
 		if(!actionService.existsById(id))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("No existe la accion"), HttpStatus.BAD_REQUEST);
 		Action action = actionService.findById(id).get();
 		return new ResponseEntity<ActionDTO>(new ActionDTO().build(action), HttpStatus.OK);
 	}
-	/*
-	@GetMapping("/detail/{url}")
-	public ResponseEntity<?> getByUrl(@PathVariable("url") String url){
-		if(!actionService.existsByUrl(url))
-			return new ResponseEntity<MessageDTO>(new MessageDTO("No existe la accion"), HttpStatus.BAD_REQUEST);
-		Action action = actionService.findByUrl(url).get();
-		return new ResponseEntity<ActionDTO>(new ActionDTO().build(action), HttpStatus.OK);
-	}*/
 	
-	@PostMapping("/create")
+	@PostMapping("/action")
 	public ResponseEntity<?> create(@RequestBody ActionDTO actionDTO) {
 		if(StringUtils.isBlank(actionDTO.getName()))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("obligatoryName"), HttpStatus.BAD_REQUEST);
@@ -76,14 +69,13 @@ public class ActionController {
 			return new ResponseEntity<MessageDTO>(new MessageDTO("quantityMinus"), HttpStatus.BAD_REQUEST);
 		if(StringUtils.isBlank(actionDTO.getPurchaseValue()))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("nullValue"), HttpStatus.BAD_REQUEST);
-		// Agregar control de url de la accion servicio externo
 		Action action = new Action(actionDTO.getName(), actionDTO.getUrl(), actionDTO.getQuantity(), 
 				actionDTO.getPurchaseDate(), actionDTO.getPurchaseValue()); 
 		actionService.save(action);
 		return new ResponseEntity<MessageDTO>(new MessageDTO("Accion creada"), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/update/{id}")
+	@PutMapping("/action/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ActionDTO actionDTO) {
 		try {
 			if(!actionService.existsById(id))
@@ -94,7 +86,6 @@ public class ActionController {
 				return new ResponseEntity<MessageDTO>(new MessageDTO("La cantidad debe ser mayor a 0"), HttpStatus.BAD_REQUEST);
 			if(StringUtils.isBlank(actionDTO.getPurchaseValue()))
 				return new ResponseEntity<MessageDTO>(new MessageDTO("Debe ingresar el valor de la accion"), HttpStatus.BAD_REQUEST);
-			// Agregar control de url de la accion servicio externo TODO
 			if(actionService.existsByUrl(actionDTO.getUrl()) && actionService.findByUrl(actionDTO.getUrl()).get().getId() != id)
 				return new ResponseEntity<MessageDTO>(new MessageDTO("Ya existe un accion con esta url"), HttpStatus.BAD_REQUEST);
 			Action action = actionService.findById(id).get();
@@ -102,7 +93,31 @@ public class ActionController {
 			action.setUrl(actionDTO.getUrl());
 			action.setQuantity(actionDTO.getQuantity());
 			action.setActualValue(actionDTO.getActualValue());
-			action.setMoneda(Moneda.valueOf(actionDTO.getMoneda()));
+			String moneda = actionDTO.getMoneda().toUpperCase();
+			action.setMoneda(Moneda.valueOf(moneda));
+			action.setStatus(Status.valueOf(actionDTO.getStatus()));
+			actionService.save(action);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<MessageDTO>(new MessageDTO("Accion actualizada"), HttpStatus.OK);
+	}
+	
+	@PatchMapping("/action/{id}")
+	public ResponseEntity<?> close(@PathVariable("id") int id, @RequestBody ActionDTO actionDTO) {
+		try {
+			if(!actionService.existsById(id))
+				return new ResponseEntity<MessageDTO>(new MessageDTO("No existe la accion"), HttpStatus.BAD_REQUEST);
+			if(StringUtils.isBlank(actionDTO.getName()))
+				return new ResponseEntity<MessageDTO>(new MessageDTO("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+			if(actionDTO.getQuantity() == 0 || actionDTO.getQuantity() < 0)
+				return new ResponseEntity<MessageDTO>(new MessageDTO("La cantidad debe ser mayor a 0"), HttpStatus.BAD_REQUEST);
+			if(StringUtils.isBlank(actionDTO.getPurchaseValue()))
+				return new ResponseEntity<MessageDTO>(new MessageDTO("Debe ingresar el valor de la accion"), HttpStatus.BAD_REQUEST);
+			if(actionService.existsByUrl(actionDTO.getUrl()) && actionService.findByUrl(actionDTO.getUrl()).get().getId() != id)
+				return new ResponseEntity<MessageDTO>(new MessageDTO("Ya existe un accion con esta url"), HttpStatus.BAD_REQUEST);
+			Action action = actionService.findById(id).get();
+			action.setDividendos(actionDTO.getDividendos());
 			action.setStatus(Status.valueOf(actionDTO.getStatus()));
 			
 			actionService.save(action);
@@ -112,7 +127,7 @@ public class ActionController {
 		return new ResponseEntity<MessageDTO>(new MessageDTO("Accion actualizada"), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/action/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		if(!actionService.existsById(id))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("No existe la accion"), HttpStatus.BAD_REQUEST);
@@ -137,18 +152,7 @@ public class ActionController {
 		} 
 		return new ResponseEntity<Boolean>(exists, HttpStatus.OK);
 	}
-	/*
-	@GetMapping("/value/{token}")
-	public ResponseEntity<String> getActionValue(@PathVariable("token") String token){
-		String res = "";
-		try {
-			res = webScrapService.getActionValue(token);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
-		return new ResponseEntity<String>(res, HttpStatus.OK);
-	}
-	*/
+	
 	@GetMapping("/info/{token}")
 	public ResponseEntity<ActionInfoDTO> getActionInfo(@PathVariable("token") String token){
 		ActionInfoDTO res = new ActionInfoDTO();

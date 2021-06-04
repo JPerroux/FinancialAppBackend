@@ -1,15 +1,19 @@
 package com.uy.financialApp.security.util;
 
-//import java.util.HashSet;
-//import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.uy.financialApp.financialTools.acciones.entity.Action;
 //import com.uy.financialApp.financialTools.acciones.entity.Action;
 import com.uy.financialApp.financialTools.acciones.service.ActionService;
+import com.uy.financialApp.security.entity.Rol;
+import com.uy.financialApp.security.entity.Usuario;
+import com.uy.financialApp.security.enums.RolName;
 //import com.uy.financialApp.security.entity.Rol;
 //import com.uy.financialApp.security.entity.Usuario;
 //import com.uy.financialApp.security.enums.RolName;
@@ -34,7 +38,7 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-	/*	Usuario admin = new Usuario();
+		Usuario admin = new Usuario();
 		
 		admin.setName("admin");
 		admin.setUserName("admin");
@@ -54,28 +58,22 @@ public class CreateRoles implements CommandLineRunner {
 		
 		userService.save(admin);
 		Action xleess = new Action("XLE Energy select sector", "XLE:NYSEARCA", (float) 0.0, 
-				"28-5-2021", "31");*/
-		/*Action pev = new Action("Parque eolico valentines", actionDTO.getUrl(), actionDTO.getQuantity(), 
-				actionDTO.getPurchaseDate(), actionDTO.getPurchaseValue());*/
-		/*Action xlffss = new Action("XLF Finance select sector", "XLF:NYSEARCA", (float) 70.0, 
+				"28-5-2021", "31");
+		Action xlffss = new Action("XLF Finance select sector", "XLF:NYSEARCA", (float) 70.0, 
 				"28-5-2021", "31");
 		Action ewsmscibcetf = new Action("EWZ MSCI Brazil Capped ETF", "EWZS:NASDAQ", (float) 83.0, 
-				"28-5-2021", "31");*/
-		/*Action etoro = new Action("E toro", actionDTO.getUrl(), actionDTO.getQuantity(), 
-				actionDTO.getPurchaseDate(), actionDTO.getPurchaseValue());*/
-		/*Action pinterest = new Action("Pinterest", "PINS:NYSE", (float) 10.0, 
+				"28-5-2021", "31");
+		Action pinterest = new Action("Pinterest", "PINS:NYSE", (float) 10.0, 
 				"28-5-2021", "31");
 		Action petrobras = new Action("Petrobras 1", "PBR:NYSE", (float) 500.0, 
 				"28-5-2021", "31");
 		Action hhtzgq = new Action("Hertz HTZGQ", "HTZGQ:OTMKTS", (float) 70.0, 
 				"28-5-2021", "31");
-		actionService.save(xleess);*/
-		//actionService.save(pev);
-		//actionService.save(xlffss);
-		//actionService.save(ewsmscibcetf);
-		//actionService.save(etoro);
-		//actionService.save(pinterest);
-		//actionService.save(petrobras);
-		//actionService.save(hhtzgq);
+		actionService.save(xleess);
+		actionService.save(xlffss);
+		actionService.save(ewsmscibcetf);
+		actionService.save(pinterest);
+		actionService.save(petrobras);
+		actionService.save(hhtzgq);
 	}
 }

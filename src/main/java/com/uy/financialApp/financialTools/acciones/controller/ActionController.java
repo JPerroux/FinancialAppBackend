@@ -93,6 +93,7 @@ public class ActionController {
 			action.setUrl(actionDTO.getUrl());
 			action.setQuantity(actionDTO.getQuantity());
 			action.setActualValue(actionDTO.getActualValue());
+			action.setPurchaseDate(actionDTO.getPurchaseDate());
 			String moneda = actionDTO.getMoneda().toUpperCase();
 			action.setMoneda(Moneda.valueOf(moneda));
 			action.setStatus(Status.valueOf(actionDTO.getStatus()));

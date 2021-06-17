@@ -1,25 +1,25 @@
 package com.uy.financialApp.security.util;
 
-//import java.util.HashSet;
-//import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-//import com.uy.financialApp.financialTools.acciones.entity.Action;
-//import com.uy.financialApp.financialTools.acciones.entity.Action;
+import com.uy.financialApp.financialTools.acciones.entity.Action;
 import com.uy.financialApp.financialTools.acciones.service.ActionService;
-//import com.uy.financialApp.security.entity.Rol;
-//import com.uy.financialApp.security.entity.Usuario;
-//import com.uy.financialApp.security.enums.RolName;
-//import com.uy.financialApp.security.entity.Rol;
-//import com.uy.financialApp.security.entity.Usuario;
-//import com.uy.financialApp.security.enums.RolName;
+import com.uy.financialApp.security.entity.Rol;
+import com.uy.financialApp.security.entity.Usuario;
+import com.uy.financialApp.security.enums.RolName;
+import com.uy.financialApp.security.entity.Rol;
+import com.uy.financialApp.security.entity.Usuario;
+import com.uy.financialApp.security.enums.RolName;
 import com.uy.financialApp.security.service.RolService;
 import com.uy.financialApp.security.service.UserService;
 
+@SuppressWarnings("unused")
 @Component
 public class CreateRoles implements CommandLineRunner {
 
@@ -38,7 +38,7 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-	   /* Usuario admin = new Usuario();
+		Usuario admin = new Usuario();
 		
 		admin.setName("admin");
 		admin.setUserName("admin");
@@ -74,6 +74,6 @@ public class CreateRoles implements CommandLineRunner {
 		actionService.save(ewsmscibcetf);
 		actionService.save(pinterest);
 		actionService.save(petrobras);
-		actionService.save(hhtzgq);*/
+		actionService.save(hhtzgq);
 	}
 }

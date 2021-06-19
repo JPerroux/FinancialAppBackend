@@ -38,7 +38,7 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Usuario admin = new Usuario();
+		/*Usuario admin = new Usuario();
 		
 		admin.setName("admin");
 		admin.setUserName("admin");
@@ -74,6 +74,6 @@ public class CreateRoles implements CommandLineRunner {
 		actionService.save(ewsmscibcetf);
 		actionService.save(pinterest);
 		actionService.save(petrobras);
-		actionService.save(hhtzgq);
+		actionService.save(hhtzgq);*/
 	}
 }

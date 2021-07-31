@@ -34,17 +34,19 @@ public class ActionDTO {
 	private double builtInValue;
 	private double position;
 	private double spread;
-	private double dividendos;
+	private double dividendos; 
+	private double closeValue;
+	private int leverage;
 	
 	public ActionDTO build(Action action) {
 		ActionDTO actionDTO = new ActionDTO(action.getId(), action.getName(), action.getUrl(), action.getQuantity(),
 				action.getPurchaseDate(), action.getPurchaseValue(), action.getStatus().toString(), 
-				action.getMoneda().toString(), action.getDividendos());
+				action.getMoneda().toString(), action.getDividendos(), action.getCloseValue(), action.getLeverage());
 		return actionDTO;
 	}
 	 
 	public ActionDTO(int id, String name, String url, float quantity, String purchaseDate, String purchaseValue, String status,
-			String moneda, double dividendos) {
+			String moneda, double dividendos, double closeValue, int leverage) {
 		this.id = id;
 		this.name = name;
 		this.url = url;
@@ -54,5 +56,7 @@ public class ActionDTO {
 		this.status = status;
 		this.moneda = moneda;
 		this.dividendos = dividendos;
+		this.closeValue = closeValue;
+		this.leverage = leverage;
 	}
 }

@@ -63,14 +63,12 @@ public class ActionController {
 	public ResponseEntity<?> create(@RequestBody ActionDTO actionDTO) {
 		if(StringUtils.isBlank(actionDTO.getName()))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("obligatoryName"), HttpStatus.BAD_REQUEST);
-		if(actionService.existsByName(actionDTO.getName()))
-			return new ResponseEntity<MessageDTO>(new MessageDTO("duplicateName"), HttpStatus.BAD_REQUEST);
 		if(actionDTO.getQuantity() < 0)
 			return new ResponseEntity<MessageDTO>(new MessageDTO("quantityMinus"), HttpStatus.BAD_REQUEST);
 		if(StringUtils.isBlank(actionDTO.getPurchaseValue()))
 			return new ResponseEntity<MessageDTO>(new MessageDTO("nullValue"), HttpStatus.BAD_REQUEST);
 		Action action = new Action(actionDTO.getName(), actionDTO.getUrl(), actionDTO.getQuantity(), 
-				actionDTO.getPurchaseDate(), actionDTO.getPurchaseValue()); 
+				actionDTO.getPurchaseDate(), actionDTO.getPurchaseValue(), actionDTO.getCloseValue(), actionDTO.getLeverage()); 
 		actionService.save(action);
 		return new ResponseEntity<MessageDTO>(new MessageDTO("Accion creada"), HttpStatus.CREATED);
 	}
@@ -94,7 +92,8 @@ public class ActionController {
 			action.setQuantity(actionDTO.getQuantity());
 			action.setActualValue(actionDTO.getActualValue());
 			action.setPurchaseDate(actionDTO.getPurchaseDate());
-			action.setPurchaseValue(actionDTO.getPurchaseValue());
+			action.setPurchaseValue(actionDTO.getPurchaseValue()); 
+			action.setLeverage(actionDTO.getLeverage());
 			String moneda = actionDTO.getMoneda().toUpperCase();
 			action.setMoneda(Moneda.valueOf(moneda));
 			action.setStatus(Status.valueOf(actionDTO.getStatus()));
@@ -121,7 +120,7 @@ public class ActionController {
 			Action action = actionService.findById(id).get();
 			action.setDividendos(actionDTO.getDividendos());
 			action.setStatus(Status.valueOf(actionDTO.getStatus()));
-			
+			action.setCloseValue(actionDTO.getCloseValue());
 			actionService.save(action);
 		} catch (Exception e) {
 			e.printStackTrace();

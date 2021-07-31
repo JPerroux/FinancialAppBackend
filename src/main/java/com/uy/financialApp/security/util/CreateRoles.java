@@ -38,7 +38,7 @@ public class CreateRoles implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		/*Usuario admin = new Usuario();
+		Usuario admin = new Usuario();
 		
 		admin.setName("admin");
 		admin.setUserName("admin");
@@ -57,23 +57,17 @@ public class CreateRoles implements CommandLineRunner {
 		rolService.save(rolUser);
 		
 		userService.save(admin);
-		Action xleess = new Action("XLE Energy select sector", "XLE:NYSEARCA", (float) 0.0, 
-				"28-5-2021", "31");
-		Action xlffss = new Action("XLF Finance select sector", "XLF:NYSEARCA", (float) 70.0, 
-				"28-5-2021", "31");
-		Action ewsmscibcetf = new Action("EWZ MSCI Brazil Capped ETF", "EWZS:NASDAQ", (float) 83.0, 
-				"28-5-2021", "31");
-		Action pinterest = new Action("Pinterest", "PINS:NYSE", (float) 10.0, 
-				"28-5-2021", "31");
-		Action petrobras = new Action("Petrobras 1", "PBR:NYSE", (float) 500.0, 
-				"28-5-2021", "31");
-		Action hhtzgq = new Action("Hertz HTZGQ", "HTZGQ:OTMKTS", (float) 70.0, 
-				"28-5-2021", "31");
-		actionService.save(xleess);
+		Action coinbase = new Action("Coinbase", "COIN:NASDAQ", (float) 0.183864, 
+				"13-5-2021", "31", 0.0, 0);
+		Action xlffss = new Action("XLF Finance", "XLF:NYSEARCA", (float) 70.0, 
+				"01-3-2019", "31", 0.0, 0);
+		Action virgingalactic = new Action("Virgin galactic", "SPCE:NYSE", (float) 5.88, 
+				"14-7-2021", "31", 0.0, 0);
+		Action lyft = new Action("Lyft", "LYFT:NASDAQ", (float) 1.8, 
+				"15-7-2021", "31", 0.0, 0);
+		actionService.save(coinbase);
 		actionService.save(xlffss);
-		actionService.save(ewsmscibcetf);
-		actionService.save(pinterest);
-		actionService.save(petrobras);
-		actionService.save(hhtzgq);*/
+		actionService.save(virgingalactic);
+		actionService.save(lyft);
 	}
 }

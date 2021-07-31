@@ -1,6 +1,5 @@
 package com.uy.financialApp.financialTools.acciones.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,11 +19,9 @@ public class Action {
 	private int id;
 	
 	@NotNull
-	@Column(unique = true)
 	private String name;
 	
 	@NotNull
-	@Column(unique = true)
 	private String url;
 	
 	@NotNull
@@ -40,12 +37,14 @@ public class Action {
 	private String actualValue;
 	private Moneda moneda;
 	private double dividendos;
+	private double closeValue;
+	private int leverage;
 	
 	public Action() {
 	}
 
 	public Action(@NotNull String name, @NotNull String url, @NotNull @Min(0) Float quantity,
-			@NotBlank String purchaseDate, @NotBlank String purchaseValue) {
+			@NotBlank String purchaseDate, @NotBlank String purchaseValue, double closeValue, int leverage) {
 		this.name = name;
 		this.url = url;
 		this.quantity = quantity;
@@ -53,6 +52,8 @@ public class Action {
 		this.purchaseValue = purchaseValue;
 		this.status = Status.ABIERTA;
 		this.moneda = Moneda.DOLAR;
+		this.closeValue = closeValue;
+		this.leverage = leverage;
 	}
 
 	public int getId() {
@@ -133,5 +134,21 @@ public class Action {
 
 	public void setDividendos(double dividendos) {
 		this.dividendos = dividendos;
+	}
+
+	public double getCloseValue() {
+		return closeValue;
+	}
+
+	public void setCloseValue(double closeValue) {
+		this.closeValue = closeValue;
+	}
+
+	public int getLeverage() {
+		return leverage;
+	}
+
+	public void setLeverage(int leverage) {
+		this.leverage = leverage;
 	}
 }
